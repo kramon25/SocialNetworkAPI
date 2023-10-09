@@ -1,5 +1,6 @@
 const express = require("express");
 const db = require("./config/connection");
+const routes = require("./routes");
 // Require model
 const { Item } = require("./models");
 
@@ -8,17 +9,9 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(routes);
 
-app.get("/all-items", async (req, res) => {
-  try {
-    // Using model in route to find all documents that are instances of that model
-    const result = await Item.find({});
-    res.status(200).json(result);
-  } catch (err) {
-    res.status(500).send({ message: "Internal Server Error" });
-  }
-});
-
+// Check for successful connection in connection.js
 db.once("open", () => {
   app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);
