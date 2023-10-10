@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 // imports moment module to format the timestamp
 const moment = require("moment");
 
 //reaction schema
-const reactionSchema = new mongoose.Schema(
+const reactionSchema = new Schema(
   {
     reactionId: {
       type: Schema.Types.ObjectId,
@@ -35,7 +35,7 @@ const reactionSchema = new mongoose.Schema(
 );
 
 // thought schema
-const thoughtSchema = new mongoose.Schema(
+const thoughtSchema = new Schema(
   {
     thoughtText: {
       type: String,
