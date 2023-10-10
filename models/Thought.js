@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 // imports moment module to format the timestamp
 const moment = require("moment");
 

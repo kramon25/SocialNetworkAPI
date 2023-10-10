@@ -15,13 +15,11 @@ router.route("/").get(getThought).post(createThought);
 
 // /api/thoughts/:thoughtId GET one thought, PUT and DELETE by iD
 
-router.route("/:thoughtId");
-
-router.get(getSingleThought);
-
-router.put(updateThought);
-
-router.delete(deleteThought);
+// prettier-ignore
+router.route("/:thoughtId")
+  .get(getSingleThought)
+  .put(updateThought)
+  .delete(deleteThought);
 
 //  /api/thoughts/:thoughtId/reactions POST new reactions
 router.route("/:thoughtId/reactions").post(createReaction);
